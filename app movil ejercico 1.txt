@@ -1,0 +1,9 @@
+import 'package:flutter/cupertino.dart';
+import 'package:css_colors/css_colors.dart';
+
+void main(){
+runApp(Center(
+child: Text("Hola Flutter",
+textDirection: TextDirection.ltr,
+style: TextStyle(color: CSSColors.green))));
+}

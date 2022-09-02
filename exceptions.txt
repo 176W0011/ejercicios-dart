@@ -1,0 +1,25 @@
+//Exceptions
+import 'dart:io';
+
+void main(){
+
+  var url = "http://imagenes/archivo1.png";
+  var downloadPath = "/descargas/archivo1.png";
+
+  try{
+    downlandFile(url);
+      } on SocketException{
+    print("Necesitas estar conectado a internet para descargar archivos:");
+  } on IOException catch (exception){
+    print(("Ocurrio un erro al guardar el archivo");
+    long(exception);
+  } on Exception catch(exception, stracktrace){
+    print("Ocurrio un error desconocido");
+    log(exception,stracktrace);
+  } finally{
+    cleanCache(url);
+  }
+}
+void log (Exception exception, [StackTrace? stackTrace]){
+  //enviar a server
+}

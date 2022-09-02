@@ -1,0 +1,70 @@
+
+void main() {
+  int score = 2;
+  double price = 23.3;
+
+  num age = 28;
+  num cost = 300.339;
+  var tax = 0.12;
+//String
+  String message = "Ingresa tu edad";
+  String ageNotice = 'tu edad es: $age';
+  var totalprice = "El precio total es: ${cost + tax}";
+
+  var message2 = message + ageNotice;
+
+//booleans
+  var isAdmin = true;
+  var isUser = false;
+  bool isTrue = true;
+
+  if (isAdmin) {
+    //algo
+  }
+//list
+  var numbers = [1, 2, 3, 4];
+  List<int> players = [32, 112, 523];
+  List<String> names = ["Julio, Andres"];
+  List<Object> objects = ["Julio, 123"];
+
+  var length = numbers.length;
+  numbers.add(20);
+  numbers.remove(2);
+  numbers.removeAt(1);
+
+  //Spread operator =...=> propagar
+  var list = [1, 2, 3];
+  var list2 = [0, ...list];
+  print(list2);
+//null-aware spread operator
+  var list3;
+  var list4 = [0, ...?list3];
+  print(list4);
+  var menu = [
+    'menu1',
+    'menu2',
+    if (age > 18) 'menu3 para mayores de edad'
+  ];
+
+  var menu2 = [
+    'menu1',
+    'menu2',
+    for (var i in list) 'menu$i'
+  ];
+
+  //sets
+  var dias = {"Lunes", "Martes", "Miercoles"};
+  Set<String> meses = {"Enero" , "Marzo"};
+
+  //maps
+  var scores = {'joe': 122, 'julio': 333};
+  Map<String, String> roles = {'joe': 'admin', 'julio': 'player'};
+  print(roles['joe']);
+  roles['julio'] = 'admin';
+  print(roles['julio']);
+}
+
+
+
+
+

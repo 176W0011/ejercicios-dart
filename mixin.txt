@@ -1,0 +1,39 @@
+//Mixin: una forma de usar codigo de una clase en multiples jerarquias de clases
+void main(){
+  var book = Book();
+  book.lend();
+
+  var childrenBook = ChildrenBooks();
+  childrenBook.lend();
+  childrenBook.sell();
+
+  var notebook = Notebook();
+  notebook.sell();
+
+}
+mixin PermanentItemActions{
+  
+}
+mixin ItemActions {
+  void lend(){
+    //lend = prestar
+    print('prestar el libro');
+  }
+
+  void sell(){
+    //sell = vender
+    print('vender el libro');
+  }
+}
+class Notebook with  ItemActions{
+  //notebook = cuaderno
+  int price = 100;
+}
+class Book with ItemActions{
+  int nroPages = 0;
+  String title = "";
+}
+
+class ChildrenBooks extends Book {
+  int maxAge = 7;
+}

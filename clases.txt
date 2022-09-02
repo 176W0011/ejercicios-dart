@@ -1,0 +1,125 @@
+//clases
+import 'dart:html';
+
+void main(){
+  var book = Book("1984", "George Orwell", 12);
+  print(book.title);
+
+  var blank = Book.blankBook();
+  var authors = ["Julio", "Andres "];
+  var multipleAuthorsBook = Book.multipleAuthors(123, "1985", authors);
+  print(multipleAuthorsBook.author);
+
+  print(book.fullTitle());
+  book.printTitle();
+  book.printAuthor(upperCase: true);
+  book.printAuthor();
+  
+  var book1= Book("libro1", "author 1", 123);
+  var book2= Book("libro2", "author2", 999);
+
+  var bookSum = book1 + book2;
+  print((bookSum as Book).fullTitle());
+
+  var fictionShelf = FictionShelf();
+  fictionShelf.sorBooks();
+  var number = fictionShelf.number0fBooks();
+
+}
+class Book {
+  static final Map<int, Book> cacheBooks = <int, Book>{};
+
+//instance variables = variables de instancia
+  int id;
+
+  String title;
+  String author;
+
+//constructor = constructores
+  Book(this.title, this.author, this.id);
+
+//named constructor = constructores
+  Book.blankBook()
+      : title = "",
+        author = "",
+        id = -1;
+
+  Book.multipleAuthors(int id, String title, List<String> authors)
+      :
+        this.id = id,
+        this.title = title,
+        author = authors.join(",");
+
+// construc
+  factory Book.fromJSON(Map<String, String> json){
+    if (json.containsKey("author") && json.containsKey("title")) {
+      return Book(json["author"] as String, json["title"] as String, 2);
+    } else {
+      return Book.blankBook();
+    }
+  }
+
+  factory Book.fromCache(int id){
+    return cacheBooks[id] ?? Book.blankBook();
+  }
+
+//methods
+  String fullTitle() {
+    return title + " - " + author;
+  }
+
+  printTitle() {
+    print("El titulo es : $title");
+  }
+
+  printAuthor({bool upperCase = false}) {
+    if (upperCase) {
+      print(author.toUpperCase());
+    } else {
+      print(author);
+    }
+  }
+
+  // operators
+  operator +(Book other) {
+    return Book(this.title + "/" + other.title,
+        this.title + "/" + other.author,
+        15988);
+  }
+
+  //shelf = estante de libros
+  abstract class Shelf {
+  void sortBooks();// ordenas libros
+  int number0fBooks(){
+  //calcular numero de librors
+  return 100;
+  }
+  }
+
+
+  class PapersShelf extends Shelf {
+  @override
+  void sortBooks() {
+  //usan los años de publicacion
+  }
+  }
+  @override
+  int number0fBooks(){
+  //TODO: implement number0fBook
+  return super.number0fBook();
+  }
+
+  class ChildrenBooksShelf extends Shelf {
+  @override
+  void sortBooks() {
+  //edad objetiva del libro
+  }
+  }
+  class FictionShelf extends Shelf {
+  @override
+  void sortBook() {
+  //TODO: implement sortBooks
+  }
+  }
+
+}

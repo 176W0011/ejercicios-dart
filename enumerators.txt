@@ -1,0 +1,63 @@
+// Enum = enumerators
+enum LoginStatus{
+   success,
+   error,
+   retry,
+  incorrectPassword,
+  userDoesntExist,
+}
+enum Color {
+  azul,
+  amarillo,
+  naranja,
+
+}
+enum Rol{
+  admin,
+  supervisor,
+  user,
+}
+void main (){
+
+
+  var result = loginUser("Julio", "password");
+switch (result){
+
+  case LoginStatus.success:
+    // TODO: entra a la app
+    break;
+  case LoginStatus.error:
+
+    // TODO: no olvidar hacer esto
+
+    break;
+  case LoginStatus.retry:
+    // TODO: reintentar en 5 segundos.
+    break;
+  case LoginStatus.incorrectPassword:
+    // TODO: Handle this case.
+    break;
+  case LoginStatus.userDoesntExist:
+    // TODO: Handle this case.
+    break;
+  default:
+    throw Exception("Error al hacer login");
+}
+List<LoginStatus> loginStatusValues = LoginStatus.values;
+
+for (var status in loginStatusValues){
+  //TODO: alguna logica
+}
+
+if (result ==LoginStatus.values[4]){
+
+}
+
+  if (result ==LoginStatus.incorrectPassword){
+
+  }
+}
+LoginStatus loginUser(String username, String password){
+  //logica para iniciar sesion
+  return LoginStatus.success;
+}
