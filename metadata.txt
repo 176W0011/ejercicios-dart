@@ -1,0 +1,33 @@
+// Metadata = annotations
+// @override
+//@deprecated
+void main(){
+
+  var book = Book();
+  book.number0fpages();
+  book.chaptersAndPages();
+
+  //Puedes acceder a annotation en tiempo de ejecucion mediante "REflection"
+
+  
+}
+class Book {
+  int nroPages = 0;
+  @Deprecated("Use new method chaptersAndPages()")
+  int number0fpages (){
+    //logica de entermedio
+    return nroPages;
+  }
+@VersionRestriction("3.5.0", "We need some new apis")
+  List<int> chaptersAndPages(){
+
+    return [123, 12, 40];
+  }
+}
+//restriccion de version
+class VersionRestriction{
+  final String version;
+  final String reason; // motivo
+
+const VersionRestriction(this.version, this.reason);
+}
