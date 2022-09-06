@@ -1,0 +1,14 @@
+import 'main.dart' hide SpanishSummary;
+
+void main(){
+
+  var book2 = Book();
+  book2.translateToSpanish();
+  var name = "James";
+  name.toSpanish();
+}
+extension SpanisTranslation on String{
+  String toSpanish(){
+    var spanishText = "Juan"; // aqui traduce
+    return spanishText;
+  }

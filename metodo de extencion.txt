@@ -1,0 +1,34 @@
+//Extension methods = metodos de extension
+void main(){
+
+  var book = Book();
+  book.summary = "This book is very funny and interesting";
+  book.translateToSpanish(book.summary);
+
+  var title = "This is my title";
+  title.toSpanish();
+      }
+
+      extension SpanisTranslation on String{
+  String toSpanish(){
+    var spanishText = "Este es mi titulo"; // aqui traduce
+    return spanishText;
+  }
+      }
+      extension SpanishSummary on Book{
+  //dentro de clase
+        String translateToSpanish(String text){
+          var translatedText = summary;
+          //traduccion mediante algo (api)
+          return translatedText;
+        }
+
+
+      }
+
+class Book {
+  int nroPages = 0;
+  String summary = "";
+
+
+}

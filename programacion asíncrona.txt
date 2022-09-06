@@ -1,0 +1,22 @@
+void main() async{
+  print ("Obteniendo la informacion del usuario...");
+  var userName = await getUserName();
+  print(userName);
+}
+
+Future<String> getUserName() async{
+
+//llama al server  y toma mucho tiempo
+return Future.delayed(const Duration(seconds: 2), () => "Julio Andres");
+}
+
+void printFileData() async{
+  readFile().then((value) => print(value));
+  var file = await readFile();
+  print(file);
+}
+
+Future<String> readFile() async {
+  
+  return Future.value("Este es un archivo muy grande");
+}

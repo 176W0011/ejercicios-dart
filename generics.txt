@@ -1,0 +1,44 @@
+// Generics = tipos de genericos = tipos parametrizados
+
+void main(){
+
+   List<String>  names = ['Julio', 'andres'];
+   List<int> numbers = [1, 2, 3];
+   Map<String, int> scores = {
+     'player1' : 123,
+     'player2' : 123000,
+   };
+   // E, T, S, K,V lo que se escribe entre parametros <e>
+  // element, type, key, value
+   Storage<String> storage = Storage<String>("Hola");
+
+    var userId = 123333;
+    var storage2 = StorageNumbers<int>(userId);
+
+    var price = 900.99;
+    var storagePrice = StorageNumbers<double>(price);
+
+    var showTutorial = false;
+    var storageBool = Storage(showTutorial);
+    storageBool.value = true;
+
+    var  result = getUserID<int>();
+
+    cancelTutorial<String>("true");
+}
+cancelTutorial<E>(E cancel) {
+  Storage<E>(cancel);
+}
+
+V getUserID<V>(){
+  var storage = Storage(123);
+  return storage.value as V;
+}
+class Storage<T>{ //Storage almacenamiento
+  T value;
+  Storage(this.value);
+}
+class StorageNumbers<T extends num>{
+  T value;
+  StorageNumbers(this.value);
+}

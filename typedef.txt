@@ -1,0 +1,28 @@
+//typedef = alias para tipos => dart. 2.13
+typedef IntList = List<int>;
+typedef ConfiguracionMAp = Map <int, List<Map<String, String>>>;
+
+typedef MyFunction = bool Function(String a, int b);
+
+bool SomeBigFunction(String userId, int score){
+  //alguna logica
+  return true;
+}
+
+otherFunctionHere(MyFunction function, int x){
+  // algo
+  function.call("algo", x);
+}
+
+void main (){
+
+  List<int> scores = [12, 34, 5689];
+  IntList scores2 = [23, 343, 343];
+  ConfiguracionMAp appConfigurations;
+
+  MyFunction func = SomeBigFunction;
+  var result = func.call("julio", 2323);
+  
+  otherFunctionHere(func, 222);
+
+  }
